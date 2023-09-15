@@ -18,7 +18,7 @@ Logo.propTypes = {
 
 Logo.defaultProps = {
     title: 'Covid-19 Tracking App',
-    logo: 'https://github.com/tatoline/covid-19_tracking_app/tree/master/src/img/logo.png'
+    logo: 'https://raw.githubusercontent.com/tatoline/covid-19_tracking_app/master/src/img/logo.png'
 }
 
 export default Logo
