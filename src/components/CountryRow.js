@@ -15,9 +15,9 @@ const CountryRow = ({country, totalCases, totalRecovered, totalDeaths}) => {
 
 CountryRow.propTypes = {
     country: PropTypes.string,
-    totalCases: PropTypes.number,
-    totalRecovered: PropTypes.number,
-    totalDeaths: PropTypes.number
+    totalCases: PropTypes.string,
+    totalRecovered: PropTypes.string,
+    totalDeaths: PropTypes.string
 }
 
 CountryRow.defaultProps = {
