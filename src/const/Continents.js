@@ -1,8 +1,3 @@
-import Asia from "./continents/Asia"
-import Europe from "./continents/Europe"
-import NorthAmerica from "./continents/NorthAmerica"
-import SouthAmerica from "./continents/SouthAmerica"
-
 const Continents = () => {
     return(
         <svg viewBox="0 0 3840 2088">
