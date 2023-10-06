@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Logo from "./Logo"
 import MenuItem from "./MenuItem"
 import PropTypes from 'prop-types'
@@ -6,6 +6,11 @@ import PropTypes from 'prop-types'
 const Header = ({activeId, onMenuChange}) => {
 
     const [_activeId, setActiveId] = useState(activeId)
+
+    // This should on here to update highlighted menu item, if active menu item changed by clicking Earth image
+    useEffect(() => {
+        setActiveId(activeId)
+    }, [activeId])
 
     const [menuItems] = useState(
         [

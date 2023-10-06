@@ -7,17 +7,19 @@ import CovidForContinent from "./components/CovidForContinent"
 const App = () => {
   const [id, setId] = useState(1)
 
+  const onMenuChange = (id) => setId(id)
+
   return (
-    <>
-      <Header activeId={id} onMenuChange={(id) => setId(id)} />
+    <div className="bg-slate-100 min-h-screen min-w-full">
+      <Header activeId={id} onMenuChange={onMenuChange} />
 
       <div className="md:container md:mx-auto p-0 sm:p-8 overflow-x-auto md:overflow-x-hidden">
-        {id === 1 && <CovidForWorld />}
+        {id === 1 && <CovidForWorld activeId={id} onEarthClick={onMenuChange} />}
         {id === 2 && <CovidForCountry />}
         {id === 3 && <CovidForContinent />}
       </div>
 
-    </>
+    </div>
   )
 }
 
