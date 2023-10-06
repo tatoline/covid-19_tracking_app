@@ -32,7 +32,7 @@ const Header = ({activeId, onMenuChange}) => {
             <div className="container flex flex-wrap justify-between items-center mx-auto">
                 <Logo />
                 <div className="w-auto block">
-                    <ul className="flex flex-row mt-4 font-semibold text-xs space-x-8 mt-0">
+                    <ul className="flex flex-row mt-4 font-semibold text-xs space-x-8">
                         {menuItems.map( (item) => 
                             <MenuItem
                                 key={item.id}
