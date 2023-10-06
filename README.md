@@ -2,6 +2,8 @@
 
 This application shows the real-time Covid-19 statistics with using the data of the World Health Organization (WHO). Tailwind CSS was used for styling.
 
+![](https://github.com/tatoline/covid-19_tracking_app/blob/master/view.gif)
+
 ### `DONE`
 - WHO's API implemented
 - 3 different page and their components created
