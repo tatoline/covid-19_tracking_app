@@ -1,0 +1,31 @@
+#earth {
+    box-shadow: inset 16px 0 40px 6px rgb(0, 0, 0),
+        inset -3px 0 6px 2px rgba(255, 255, 255, 0.2);
+    animation-name: rotate;
+    animation-duration: 50s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+  
+@keyframes rotate {
+    from { background-position-x: 0px; }
+    to { background-position-x: 840px; }
+}
+
+@keyframes border-pulse {
+    50% {
+        border-color: white;
+    }
+}
+.animate-border-pulse {
+    animation: border-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes bg-pulse {
+    50% {
+        background-color: white;
+    }
+}
+.animate-bg-pulse {
+    animation: bg-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
