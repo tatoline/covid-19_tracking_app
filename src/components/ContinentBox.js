@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import useWindowSize from "../hooks/useWindowSize"
 
 const ContinentBox = ({activeContinent, hide, data}) => {
 
@@ -33,16 +34,82 @@ const ContinentBox = ({activeContinent, hide, data}) => {
         },
     ])
 
-    const [continentBoxPositions] = useState(
+    const {width} = useWindowSize()
+
+    const [continentBoxResponsivePositions] = useState(
         {
-            "north-america": {"x":"-10", "y":"-9"},
-            "south-america": {"x":"-34", "y":"8"},
-            "europe": {"x":"-16", "y":"-13"},
-            "africa": {"x":"18", "y":"5"},
-            "asia": {"x":"13", "y":"4"},
-            "australia": {"x":"13", "y":"4"},
+            "north-america": {
+                "sm": {"x":"-1", "y":"-3"},
+                "md": {"x":"-2", "y":"-4"},
+                "lg": {"x":"-3", "y":"-6"},
+                "xl": {"x":"-5", "y":"-8"},
+                "2xl": {"x":"-10", "y":"-9"}
+            },
+            "south-america": {
+                "sm": {"x":"-14", "y":"4"},
+                "md": {"x":"-16", "y":"5"},
+                "lg": {"x":"-22", "y":"6"},
+                "xl": {"x":"-28", "y":"8"},
+                "2xl": {"x":"-34", "y":"8"}
+            },
+            "europe": {
+                "sm": {"x":"-9", "y":"-4"},
+                "md": {"x":"-9", "y":"-5"},
+                "lg": {"x":"-12", "y":"-11"},
+                "xl": {"x":"-15", "y":"-13"},
+                "2xl": {"x":"-16", "y":"-13"}
+            },
+            "africa": {
+                "sm": {"x":"9", "y":"2"},
+                "md": {"x":"10", "y":"2"},
+                "lg": {"x":"13", "y":"3"},
+                "xl": {"x":"16", "y":"4"},
+                "2xl": {"x":"18", "y":"5"}
+            },
+            "asia": {
+                "sm": {"x":"2", "y":"2"},
+                "md": {"x":"5", "y":"3"},
+                "lg": {"x":"11", "y":"5"},
+                "xl": {"x":"12", "y":"6"},
+                "2xl": {"x":"13", "y":"4"}
+            },
+            "australia": {
+                "sm": {"x":"3", "y":"2"},
+                "md": {"x":"5", "y":"3"},
+                "lg": {"x":"7", "y":"4"},
+                "xl": {"x":"11", "y":"6"},
+                "2xl": {"x":"13", "y":"4"}
+            },
         }
     )
+
+    const [continentBoxPosition, setContinentBoxPosition] = useState(
+        {
+            "x": "0",
+            "y": "0"
+        }
+    )
+
+    useEffect( () => {
+        // Assigning continent box position as responsive
+        if(activeContinent && continentBoxResponsivePositions[activeContinent])  {
+            if (width >= 1536) {
+                setContinentBoxPosition(continentBoxResponsivePositions[activeContinent]['2xl'])
+            }
+            else if (width >= 1280 && width < 1536) {
+                setContinentBoxPosition(continentBoxResponsivePositions[activeContinent]['xl'])
+            }
+            else if (width >= 1024 && width < 1280) {
+                setContinentBoxPosition(continentBoxResponsivePositions[activeContinent]['lg'])
+            }
+            else if (width >= 768 && width < 1024) {
+                setContinentBoxPosition(continentBoxResponsivePositions[activeContinent]['md'])
+            }
+            else if (width <= 768) {
+                setContinentBoxPosition(continentBoxResponsivePositions[activeContinent]['sm'])
+            }
+        }
+    }, [width, continentBoxResponsivePositions, activeContinent])
 
     // Transition: translate smooth scroll effect
     const [xYPosition, setXYPosition] = useState([])
@@ -51,13 +118,13 @@ const ContinentBox = ({activeContinent, hide, data}) => {
 
         if(activeContinent){
             translateTimeout = setTimeout(() => {
-                setXYPosition([continentBoxPositions[activeContinent].x, continentBoxPositions[activeContinent].y])
+                setXYPosition([continentBoxPosition.x, continentBoxPosition.y])
             }, 100)
         }
 
         return () => clearTimeout(translateTimeout)
 
-    }, [activeContinent, continentBoxPositions])
+    }, [activeContinent, continentBoxPosition])
 
 
     // Continent name adjustment for continent ids
@@ -69,7 +136,6 @@ const ContinentBox = ({activeContinent, hide, data}) => {
     const [continentData] = useState({})
 
     useEffect(() => {
-        // console.log("data", JSON.stringify(data))
         if(data && data.length > 0){
             data.forEach((item) => {
                 item.continent = item.continent === "Oceania" ? "Australia" : item.continent
@@ -77,15 +143,15 @@ const ContinentBox = ({activeContinent, hide, data}) => {
                 continentData[formattedContinentName] = item
             })
         }
-    }, [data, activeContinent])
+    }, [data, activeContinent, continentData])
 
     return(
         (data && data.length > 0 && continentData[activeContinent]) && (
-        <div  key={activeContinent} className={`h-44 w-60 bg-slate-500 absolute rounded border-cyan-500 border-2 p-1 transition-all duration-500
-            ${hide ? 'opacity-0' : 'opacity-70'}`}
+        <div  key={activeContinent} className={` bg-slate-500 absolute rounded border-cyan-500 border-2 p-1 transition-all duration-500
+            ${hide ? 'opacity-0 z-0' : 'opacity-70 z-20'}`}
             style={{transform: `translate(${xYPosition[0]}rem, ${xYPosition[1]}rem)`}}>
             {headers.map((item) => (
-                <div key={`div${item.id}`}>
+                <div key={`div${item.id}`} className="text-xs leading-3 lg:text-sm lg:leading-4 xl:text-base xl:leading-normal">
                     <span key={item.id} className="font-semibold">{item.title}: </span>
                     {continentData[activeContinent] && (
                         <span key={`info${item.id}`} >{continentData && continentData[activeContinent] && continentData[activeContinent][item.id]}</span>
