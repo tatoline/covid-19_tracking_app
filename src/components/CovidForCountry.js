@@ -1,14 +1,13 @@
 import axios from "axios"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useMemo } from "react"
 import {API_URL, API_TOKEN} from "../const"
 import CountryRow from "./CountryRow"
-
 
 const CovidForCountry = () => {
 
     const [data, setData] = useState([])
-    const [query, setQuery] = useState("")
     const [isLoading, setLoading] = useState(false)
+    const [filterCountry, setFilterCountry] = useState('');
     const [headers] = useState([
         {
             title: 'Country'
@@ -26,7 +25,7 @@ const CovidForCountry = () => {
 
     const fetchData = async () => {
         setLoading(true)
-        const response = await axios.get(`${API_URL}countriesData?country=${query}`, {
+        const response = await axios.get(`${API_URL}countriesData`, {
             headers: {
                 authorization: API_TOKEN
             }
@@ -37,12 +36,17 @@ const CovidForCountry = () => {
 
     useEffect(() => {
         fetchData()
-    }, [query])
+    }, [])
+
+    // Country filtering process (Optimized with useMemo since getting whole countries from API is expensive)
+    const filteredCountries = useMemo(() => {
+        return data.filter(item => item.country.toLowerCase().includes(filterCountry.toLowerCase()));
+    }, [data, filterCountry])
 
     return(
         <>
             <div>
-                <input value={query} onChange={(e) => {setQuery(e.target.value)}} placeholder="Search..."
+                <input value={filterCountry} onChange={e => setFilterCountry(e.target.value)} type="text" placeholder="Search..."
                     className="w-full min-w-max max-w-xl shadow border rounded px-2 py-1 m-2 focus:outline-none focus:shadow-gray-800"/>
             </div>
             <div className="rounded shadow-md cursor-pointer grid-cols-[183px_repeat(3,minmax(126px,_1fr))]
@@ -55,7 +59,7 @@ const CovidForCountry = () => {
                 })}
             </div>
             {isLoading ? <p>Loading...</p> :
-            data.map( (item) => {
+            filteredCountries.map( (item) => {
                 return(
                     <CountryRow key={item.country} country={item.country} totalCases={item.totalCases} totalRecovered={item.totalRecovered} totalDeaths={item.totalDeaths} />
                 )
