@@ -4,10 +4,7 @@ import { API_TOKEN, API_URL } from "../const"
 import "./styles/CovidForWorld.css"
 import PropTypes from 'prop-types'
 
-const CovidForWorld = ({activeId, onEarthClick}) => {
-    // To adjust active menu item on header
-    const [_activeId, setActiveId] = useState(activeId)
-
+const CovidForWorld = ({onEarthClick}) => {
     const [isLoading, setLoading] = useState(false)
     const [data, setData] = useState(null)
 
@@ -30,9 +27,7 @@ const CovidForWorld = ({activeId, onEarthClick}) => {
     const [scaleEarth, setScaleEarth] = useState(1)
     const handleOnClick = () => {
         setScaleEarth(5)
-        setActiveId(3)
         setTimeout(() => {
-            setLoading(true)
             onEarthClick(3)     
         }, 500)
     }
