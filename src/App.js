@@ -3,6 +3,7 @@ import Header from "./components/Header"
 import CovidForCountry from "./components/CovidForCountry"
 import CovidForWorld from "./components/CovidForWorld"
 import CovidForContinent from "./components/CovidForContinent"
+import Footer from "./components/Footer"
 
 const App = () => {
   const [id, setId] = useState(1)
@@ -19,6 +20,7 @@ const App = () => {
         {id === 3 && <CovidForContinent />}
       </div>
 
+      <Footer />
     </div>
   )
 }
