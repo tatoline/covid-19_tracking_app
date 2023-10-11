@@ -1,6 +1,5 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { API_TOKEN, API_URL } from "../const"
 import "./styles/CovidForWorld.css"
 import PropTypes from 'prop-types'
 
@@ -10,11 +9,7 @@ const CovidForWorld = ({onEarthClick}) => {
 
     const fetchData = async () => {
         setLoading(true)
-        const response = await axios.get(`${API_URL}totalData`, {
-            headers: {
-                authorization: API_TOKEN
-            }
-        })
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}world`)
         setData(response.data.result)
         setLoading(false)
     }

@@ -1,6 +1,5 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { API_TOKEN, API_URL } from "../const"
 import Continents from "./Continents"
 import ContinentBox from "./ContinentBox"
 
@@ -15,11 +14,7 @@ const CovidForContinent = () => {
 
     const fetchData = async () => {
         setLoading(true)
-        const response = await axios.get(`${API_URL}continentData`, {
-            headers: {
-                authorization: API_TOKEN
-            }
-        })
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}continent`)
         setData(response.data.result)
         setLoading(false)
     }
