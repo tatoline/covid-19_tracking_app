@@ -2,7 +2,6 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import "./styles/CovidForWorld.css"
 import PropTypes from 'prop-types'
-require('dotenv').config()
 
 const CovidForWorld = ({onEarthClick}) => {
     const [isLoading, setLoading] = useState(false)
@@ -10,7 +9,7 @@ const CovidForWorld = ({onEarthClick}) => {
 
     const fetchData = async () => {
         setLoading(true)
-        const response = await axios.get(`${process.env.API_URL}world`)
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}world`)
         setData(response.data.result)
         setLoading(false)
     }

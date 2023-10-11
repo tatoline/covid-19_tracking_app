@@ -1,7 +1,6 @@
 import axios from "axios"
 import { useEffect, useState, useMemo } from "react"
 import CountryRow from "./CountryRow"
-require('dotenv').config()
 
 const CovidForCountry = () => {
 
@@ -25,7 +24,7 @@ const CovidForCountry = () => {
 
     const fetchData = async () => {
         setLoading(true)
-        const response = await axios.get(`${process.env.API_URL}country`)
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}country`)
         setData(response.data.result)
         setLoading(false)
     }
