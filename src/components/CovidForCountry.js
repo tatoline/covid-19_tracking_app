@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useEffect, useState, useMemo } from "react"
-import {API_URL, API_TOKEN} from "../const"
 import CountryRow from "./CountryRow"
+require('dotenv').config()
 
 const CovidForCountry = () => {
 
@@ -25,11 +25,7 @@ const CovidForCountry = () => {
 
     const fetchData = async () => {
         setLoading(true)
-        const response = await axios.get(`${API_URL}countriesData`, {
-            headers: {
-                authorization: API_TOKEN
-            }
-        })
+        const response = await axios.get(`${process.env.API_URL}country`)
         setData(response.data.result)
         setLoading(false)
     }
