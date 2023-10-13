@@ -18,6 +18,9 @@ LIVE: https://covid.taylanmiroglu.com/
 - New Deaths
 - Active Cases
 
+---
+## TODO List
+
 ### `DONE`
 - [x] WHO's API implemented
 - [x] 3 different pages and their components created
