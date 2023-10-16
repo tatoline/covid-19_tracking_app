@@ -29,6 +29,7 @@ LIVE: https://covid.taylanmiroglu.com/
 - [x] Continent statistics page will be updated as responsive
 - [x] In the country statistics page, when a country searched is used, instead of requesting API again, it should search and show from the fetched data
 - [x] Footer will be added for production
+- [x] Release version number should be added to the footer
 
 ### `TODO`
 - [ ] Last updated time will be shown and there will be an "Update" button to fetch data again from the API
@@ -38,7 +39,6 @@ LIVE: https://covid.taylanmiroglu.com/
   - World statistics' font size should be smaller on mobile
   - Continent box position should be fixed and the bottom of the map on mobile
   - (Optional) Country statistics page should be improved on mobile
-- [ ] Release version number should be added to the footer
 - [ ] "Click for Details" button on or next to earth image
 - [ ] (Optional) Continent filter can be added to the country statistics page as a dropdown
 - [ ] (Optional) When clicking a continent on the continent statistics page, the user can go to the country statistics page with the continent filter applied
