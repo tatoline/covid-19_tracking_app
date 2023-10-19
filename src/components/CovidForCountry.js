@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useEffect, useState, useMemo } from "react"
 import CountryRow from "./CountryRow"
+import Loading from "./Loading"
 
 const CovidForCountry = () => {
 
@@ -53,7 +54,7 @@ const CovidForCountry = () => {
                     )
                 })}
             </div>
-            {isLoading ? <p>Loading...</p> :
+            {isLoading ? <Loading /> :
             filteredCountries.map( (item) => {
                 return(
                     <CountryRow key={item.country} country={item.country} totalCases={item.totalCases} totalRecovered={item.totalRecovered} totalDeaths={item.totalDeaths} />
