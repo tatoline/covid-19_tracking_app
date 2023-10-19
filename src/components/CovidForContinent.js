@@ -2,6 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import Continents from "./Continents"
 import ContinentBox from "./ContinentBox"
+import Loading from "./Loading"
 
 const CovidForContinent = () => {
 
@@ -48,7 +49,7 @@ const CovidForContinent = () => {
 
     return(
         <div className="flex items-center justify-center -tr">
-            {isLoading ? 'Loading...' :
+            {isLoading ? <Loading /> :
             <>
                 <Continents isHovered={(bool) => setHovered(bool)} activeContinent={(id) => setActiveContinent(id)} />
                 <ContinentBox activeContinent={activeContinent} hide={hide} data={data} />

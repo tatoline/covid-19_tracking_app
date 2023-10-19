@@ -2,6 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import "./styles/CovidForWorld.css"
 import PropTypes from 'prop-types'
+import Loading from "./Loading"
 
 const CovidForWorld = ({onEarthClick}) => {
     const [isLoading, setLoading] = useState(false)
@@ -29,7 +30,7 @@ const CovidForWorld = ({onEarthClick}) => {
 
     return(
         <div className="group flex flex-col items-center justify-center h-full overflow-hidden">
-            {isLoading ? <p>Loading...</p> :
+            {isLoading ? <Loading /> :
             <>
                 <div onClick={handleOnClick} className="border-2 border-solid border-cyan-950 animate-border-pulse p-4 cursor-pointer">
                     <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-900 mb-4">Total Cases: {data?.totalCases}</h1>
