@@ -6,10 +6,34 @@
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 }
-  
+
 @keyframes rotate {
     from { background-position-x: 0px; }
-    to { background-position-x: 840px; }
+    to { background-position-x: 466px; }
+}
+
+/* Bigger than 1024px width ("lg" prefix on Tailwind CSS) */
+@media (min-width: 1024px) {
+    @keyframes rotate {
+        from { background-position-x: 0px; }
+        to { background-position-x: 840px; }
+    }
+}
+  
+/* Bigger than 768px width ("md" prefix on Tailwind CSS) */
+@media (min-width: 768px) {
+    @keyframes rotate {
+        from { background-position-x: 0px; }
+        to { background-position-x: 700px; }
+    }
+}
+
+/* Bigger than 640px width ("sm" prefix on Tailwind CSS) */
+@media (min-width: 640px) {
+    @keyframes rotate {
+        from { background-position-x: 0px; }
+        to { background-position-x: 560px; }
+    }
 }
 
 @keyframes border-pulse {
@@ -28,4 +52,13 @@
 }
 .animate-bg-pulse {
     animation: bg-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes text-pulse {
+    50% {
+        color: white;
+    }
+}
+.animate-text-pulse {
+    animation: text-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
