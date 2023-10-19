@@ -14,7 +14,7 @@ const App = () => {
     <div className="bg-slate-100 min-h-screen min-w-full">
       <Header activeId={id} onMenuChange={onMenuChange} />
 
-      <div className="md:container md:mx-auto p-0 sm:p-8 overflow-x-auto md:overflow-x-hidden">
+      <div className="md:container md:mx-auto p-1 sm:p-8 overflow-x-auto md:overflow-x-hidden">
         {id === 1 && <CovidForWorld activeId={id} onEarthClick={onMenuChange} />}
         {id === 2 && <CovidForCountry />}
         {id === 3 && <CovidForContinent />}
