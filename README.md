@@ -31,11 +31,11 @@ This application shows the real-time Covid-19 statistics with using the data of 
 - [x] Footer will be added for production
 - [x] Release version number should be added to the footer
 - [x] "Click for Details" button on or next to earth image
+- [x] "Loading" will be animated and made into a separate component
 
 ### `TODO`
 - [ ] Last updated time will be shown and there will be an "Update" button to fetch data again from the API
 - [ ] Appearance (CSS) will be updated
-- [ ] "Loading" will be animated and made into a separate component
 - [ ] Responsiveness should be improved for world and continent statistics.
   - [x] World statistics' font size should be smaller on mobile
   - Continent box position should be fixed and the bottom of the map on mobile
