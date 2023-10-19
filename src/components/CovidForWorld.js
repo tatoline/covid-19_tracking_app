@@ -38,7 +38,7 @@ const CovidForWorld = ({onEarthClick}) => {
                 </div>
                 <div className="w-[2px] h-14 sm:h-16 md:h-20 lg:h-28 bg-cyan-950 animate-bg-pulse"></div>
                 <div onClick={handleOnClick} className="fixed z-10 text-xl sm:text-2xl md:text-3xl lg:text-4xl text-cyan-950
-                                animate-text-pulse top-1/2 md:top-2/3 cursor-pointer">Click for details</div>
+                                animate-text-pulse top-[27rem] sm:top-[32rem] md:top-[36rem] cursor-pointer">Click for details</div>
                 <div className="w-[257px] h-[257px] sm:w-[302px] sm:h-[302px]  md:w-[369px] md:h-[369px] 
                                 lg:w-[436px] lg:h-[436px] rounded-full border-2 border-solid border-cyan-950 p-4 animate-border-pulse">
                     <div onClick={handleOnClick} style={{transform: `scale(${scaleEarth})`}} className="w-[221px] h-[221px]
