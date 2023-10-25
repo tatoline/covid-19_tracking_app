@@ -1,6 +1,6 @@
 # Covid-19 Tracking App v0.1.1
 
-This application shows the real-time Covid-19 statistics with using the data of the World Health Organization (WHO). Tailwind CSS was used for styling. It's using a NodeJS/Express back-end proxy server for API key protection. Back-end codes can be reachable on here.
+This application shows the real-time Covid-19 statistics with using the data of the World Health Organization (WHO). Tailwind CSS was used for styling. It's using a NodeJS/Express back-end proxy server for API key protection. Back-end codes can be reachable on [here](https://github.com/tatoline/covid-19_tracking_app_backend).
 
 <sub>(*v0.1.1*)</sub> **LIVE**: https://covid.taylanmiroglu.com/
 
