@@ -1,6 +1,6 @@
 {
   "name": "covid-19_tracking_app",
-  "homepage": ".",
+  "homepage": "https://covid.taylanmiroglu.com/",
   "version": "0.1.1",
   "private": true,
   "dependencies": {
