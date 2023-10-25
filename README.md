@@ -32,13 +32,12 @@ This application shows the real-time Covid-19 statistics with using the data of 
 - [x] Release version number should be added to the footer
 - [x] "Click for Details" button on or next to earth image
 - [x] "Loading" will be animated and made into a separate component
+- [x] World statistics' font size should be smaller on mobile
+- [x] Continent box position should be fixed and the bottom of the map on mobile
 
 ### `TODO`
 - [ ] Last updated time will be shown and there will be an "Update" button to fetch data again from the API
 - [ ] Appearance (CSS) will be updated
-- [ ] Responsiveness should be improved for world and continent statistics.
-  - [x] World statistics' font size should be smaller on mobile
-  - Continent box position should be fixed and the bottom of the map on mobile
-  - (Optional) Country statistics page should be improved on mobile
+- [ ] (Optional) Responsiveness of country statistics page should be improved on mobile
 - [ ] (Optional) Continent filter can be added to the country statistics page as a dropdown
 - [ ] (Optional) When clicking a continent on the continent statistics page, the user can go to the country statistics page with the continent filter applied
